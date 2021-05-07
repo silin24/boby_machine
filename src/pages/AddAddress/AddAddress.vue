@@ -23,7 +23,10 @@
       <span>是否为默认套餐</span>
       <van-switch v-model="checked" size="20px"/>
     </div>
-
+    <div class="btn">
+      <van-button  class="btnSave" @click="$router.back()">取消</van-button>
+      <van-button  class="btnSubmit">添加</van-button>
+    </div>
 
   </div>
 </template>
@@ -79,6 +82,25 @@ import { Field ,CellGroup ,Form ,Switch,Picker,Popup  } from 'vant';
       align-items: center;
       justify-content: space-between;
       padding: 0 14px;
+    }
+    .btn {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      .btnSave {
+          width: 195px;
+          height: 50px;
+          background-color: #fff;
+          color: rgba(57, 85, 246, 100);
+          font-size: 18px;
+        }
+        .btnSubmit {
+          width: 195px;
+          height: 50px;
+          background-color: #3955F6;
+          font-size: 18px;
+          color: #FFF;
+        }
     }
   }
 </style>

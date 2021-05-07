@@ -1,9 +1,10 @@
 <template>
+<div class="homeContainer">
   <div class="home">
     <section class="home-header">
       <div class="up">
          <van-icon name="scan" class="scan"/>
-         <van-icon name="setting-o" class="setting"/>
+         <van-icon name="setting-o" class="setting" @click="toSetting"/>
       </div>
       <div class="middle">
         <div class="avator">
@@ -80,15 +81,17 @@
       </div>
     </section>
   </div>
+</div>
 </template>
 
 <script type="text/ecmascript-6">
-import Swiper from "swiper";
-import "swiper/css/swiper.min.css";
-import PromotionData from '../../components/Home/PromotionData/PromotionData'
-import BabyMachine from '../../components/Home/BabyMachine/BabyMachine'
-import AdIncome from '../../components/Home/AdIncome/AdIncome'
-import PromotionPoint from '../../components/Home/PromotionPoint/PromotionPoint'
+  import BScroll from "better-scroll";
+  import Swiper from "swiper";
+  import "swiper/css/swiper.min.css";
+  import PromotionData from '../../components/Home/PromotionData/PromotionData'
+  import BabyMachine from '../../components/Home/BabyMachine/BabyMachine'
+  import AdIncome from '../../components/Home/AdIncome/AdIncome'
+  import PromotionPoint from '../../components/Home/PromotionPoint/PromotionPoint'
   export default {
     components:{PromotionData,BabyMachine,AdIncome,PromotionPoint},
     mounted() {
@@ -98,12 +101,24 @@ import PromotionPoint from '../../components/Home/PromotionPoint/PromotionPoint'
           pagination: {
             el: ".swiper-pagination",
           },
-        });
+      });
+      new BScroll(".homeContainer", {
+        scrollY: true, // 纵向滑动
+        click: true, // 允许点击
+        // bounce: false
+      });
+    },
+    methods: {
+      toSetting(){
+        this.$router.push('/setting')
+      }
     },
   }
 </script>
 
 <style scoped lang="scss">
+.homeContainer {
+  height: calc(100vh - 56px);
   .home {
     .home-header{
       width: 390px;
@@ -225,4 +240,5 @@ import PromotionPoint from '../../components/Home/PromotionPoint/PromotionPoint'
       }
     }
   }
+}
 </style>

@@ -203,6 +203,8 @@
 </template>
 
 <script>
+import BScroll from "better-scroll";
+
   export default {
   data () {
     return {
@@ -210,8 +212,11 @@
     }
   },
   mounted(){
-    
-  },
+    new BScroll(".userShow", {
+      scrollY: true, // 纵向滑动
+      click: true, // 允许点击
+    });
+},
   methods: {
   }
 }
@@ -239,21 +244,23 @@
         }
       }
       &.active::after {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: 4px;
-      content: '';
-      display: block;
-      width: 30px;
-      height: 4px;
-      border-radius: 4px;
-      background-color: blue;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 4px;
+        content: '';
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-radius: 4px;
+        background-color: #007aff;
     }
 
     }
   }
   .userShow {
+    height: calc(100vh - 126px);
+    overflow: hidden;
     >div{
       display: none;
       &.on{
@@ -272,7 +279,7 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            background-color: blue;
+            background-color: pink;
             margin-right: 10px;
           }
           div {

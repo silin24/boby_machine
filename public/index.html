@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <meta name="browsermode" content="application">
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <meta name="360-fullscreen" content="true" /> -->
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <link rel="stylesheet" href="/css/reset.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
@@ -12,6 +17,7 @@
         height: 16px;
       }
     </style>
+
   </head>
   <body>
     <noscript>
@@ -19,5 +25,22 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <!-- <script type="text/javascript">
+      function getBrowserInterfaceSize() {
+        var pageWidth = window.innerWidth;
+        var pageHeight = window.innerHeight;
+        if (typeof pageWidth != "number") { //在标准模式下面
+        if (document.compatMode == "CSS1Compat" ) {
+          pageWidth = document.documentElement.clientWidth;
+          pageHeight = document.documentElement.clientHeight;
+        } else {
+          pageWidth = document.body.clientWidth;
+          pageHeight = window.body.clientHeight;
+        }
+        }
+          document.body.style.height = pageHeight + 'px'
+      }
+      getBrowserInterfaceSize()
+    </script> -->
   </body>
 </html>

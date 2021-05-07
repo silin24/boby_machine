@@ -45,7 +45,7 @@
       </van-cell-group>
     </div>
     <div class="addDeviceFooter">
-      <van-button type="default" class="cancel">取消</van-button>
+      <van-button type="default" class="cancel" @click="$router.back()">取消</van-button>
       <van-button type="info" class="add">添加</van-button>
     </div>
   </div>

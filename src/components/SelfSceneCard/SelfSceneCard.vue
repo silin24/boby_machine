@@ -10,7 +10,7 @@
     </div>
     <div class="no3">
       <div class="uploadLeft">
-        <span>上传视频素材(可穿多个)</span>
+        <span>上传视频素材(可传多个)</span>
         <span class="videoForm">上传视频格式为.mp4的视频文件</span>
       </div>
       <div class="uploadRight">

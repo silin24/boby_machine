@@ -4,7 +4,7 @@
       <div class="videoHeader">
         <van-button plain type="primary" class="btn">投放到设备</van-button>
         <van-button plain type="primary" class="btn">拍摄教程</van-button>
-        <van-button type="info" class="btn" @click="$router.push('/addlibrary')">添加库</van-button>
+        <van-button type="info" class="btn" @click="$router.push('/video/addlibrary')">添加库</van-button>
       </div>
       <div class="videoChange">
         <div :class="{active:isShowNormal}" @click="isShowNormal=true">
@@ -38,6 +38,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+import BScroll from "better-scroll";
+
 import VideoCard from '../../components/VideoCard/VideoCard'
   export default {
     components:{VideoCard},
@@ -46,13 +48,20 @@ import VideoCard from '../../components/VideoCard/VideoCard'
         isShowNormal:true
       }
     },
+    mounted() {
+      new BScroll(".videoShow", {
+        scrollY: true, // 纵向滑动
+        click: true, // 允许点击
+      });
+    },
   }
 </script>
 
 <style scoped lang="scss">
 .video {
   width: 390px;
-  height: 923px;
+  // height: 923px;
+  padding-bottom: 10px;
   background-color: #F2F2F2;
   overflow: hidden;
  .videoContainer {
@@ -86,20 +95,22 @@ import VideoCard from '../../components/VideoCard/VideoCard'
         }
       }
       &.active::after {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      margin-top: 4px;
-      content: '';
-      display: block;
-      width: 30px;
-      height: 4px;
-      border-radius: 4px;
-      background-color: blue;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 4px;
+        content: '';
+        display: block;
+        width: 30px;
+        height: 3px;
+        border-radius: 4px;
+        background-color: #007aff;
      }
     }
   }
   .videoShow {
+    height: calc(100vh - 192px);
+    overflow: hidden;
       ul{
         li{
           margin-bottom: 15px;

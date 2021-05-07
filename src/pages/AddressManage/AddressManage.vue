@@ -13,7 +13,9 @@
         </li>
       </ul>
     </div>
-
+    <div class="add" @click="$router.push('/addAddress')">
+      <van-icon name="plus" />
+    </div>
   </div>
 </template>
 
@@ -36,6 +38,19 @@ import AddressCard from '../../components/AddressCard/AddressCard'
           margin-bottom: 13px;
         }
       }
+    }
+    .add {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background-color: #3955F6;
+      text-align: center;
+      line-height: 62px;
+      font-size: 25px;
+      color: #fff;
     }
 
   }

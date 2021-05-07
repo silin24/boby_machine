@@ -1,38 +1,45 @@
 <template>
   <div class="addLibrary">
-    <div class="addLibraryChange">
-      <van-tabs v-model="active" background="#F2F2F2">
-        <van-tab title="视频" :title-style="{'font-size':'16px'}">
-          <!-- 片头场景 -->
-          <h2 class="first">片头场景(选传)</h2>
-          <SceneCard/>
-          <!-- 片尾场景 -->
-          <h2>片尾场景(选传)</h2>
-          <SceneCard/>
-          <!-- 自定义片段场景 -->
-          <div class="selfUpload">
-            <h2>自定义片段场景<span>(选传)</span></h2>
-            <van-icon name="plus" class="plus"/>
-          </div>
-          <SelfSceneCard/>
-          <div class="submit">
-            <van-button  class="btnSave">保存</van-button>
-            <van-button  class="btnSubmit">提交审核并使用</van-button>
-          </div>
-          <div class="cancel">
-            <van-button  class="btnCancel">取消本次编辑</van-button>
-          </div>
-        </van-tab>
-        <van-tab title="人声" :title-style="{'font-size':'16px'}">内容 2</van-tab>
-        <van-tab title="音乐" :title-style="{'font-size':'16px'}">内容 3</van-tab>
-        <van-tab title="标题" :title-style="{'font-size':'16px'}">内容 4</van-tab>
-        <van-tab title="其他" :title-style="{'font-size':'16px'}">内容 4</van-tab>
+    <!-- <div class="addLibraryChange"> -->
+      <van-tabs v-model="active" background="#F2F2F2" color="#007aff">
+        <!-- <div class="videoContent1"> -->
+          <van-tab title="视频" :title-style="{'font-size':'16px'}"class="videoContent">
+            <div>
+              <!-- 片头场景 -->
+              <h2 class="first">片头场景(选传)</h2>
+              <SceneCard/>
+              <!-- 片尾场景 -->
+              <h2>片尾场景(选传)</h2>
+              <SceneCard/>
+              <!-- 自定义片段场景 -->
+              <div class="selfUpload">
+                <h2>自定义片段场景<span>(选传)</span></h2>
+                <van-icon name="plus" class="plus"/>
+              </div>
+              <SelfSceneCard/>
+              <div class="submit">
+                <van-button  class="btnSave">保存</van-button>
+                <van-button  class="btnSubmit">提交审核并使用</van-button>
+              </div>
+              <div class="cancel" @click="$router.back()">
+                <van-button  class="btnCancel">取消本次编辑</van-button>
+              </div>
+            </div>
+          </van-tab>
+          <van-tab title="人声" :title-style="{'font-size':'16px'}">
+            <div class="music">asdasdasdasd</div>
+          </van-tab>
+          <van-tab title="音乐" :title-style="{'font-size':'16px'}">内容 3</van-tab>
+          <van-tab title="标题" :title-style="{'font-size':'16px'}">内容 4</van-tab>
+          <van-tab title="其他" :title-style="{'font-size':'16px'}">内容 4</van-tab>
+        <!-- </div> -->
       </van-tabs>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
+import BScroll from "better-scroll";
 import SceneCard from '../../components/SceneCard/SceneCard'
 import SelfSceneCard from '../../components/SelfSceneCard/SelfSceneCard'
 import { Tab, Tabs } from 'vant';
@@ -44,10 +51,18 @@ import { Tab, Tabs } from 'vant';
       SelfSceneCard
     },
     data() {
-    return {
-      active: 0,
-    };
-  },
+      return {
+        active: 0,
+      };
+    },
+    mounted() {
+      this.$nextTick(() => {
+          new BScroll(".videoContent", {
+              scrollY: true, // 纵向滑动
+              click: true, // 允许点击
+            });
+        })
+    },
   }
 </script>
 
@@ -56,9 +71,11 @@ import { Tab, Tabs } from 'vant';
   width: 390px;
   // height: 1238px;
   background-color: #F2F2F2;
-  .addLibraryChange {
-    padding-top: 20px;
-    box-sizing: border-box;
+  padding-top: 20px;
+  box-sizing: border-box;
+  .videoContent {
+    height: calc(100vh - 50px);
+    overflow: hidden;
     .first {
       margin-top: 10px;
     }
@@ -94,6 +111,7 @@ import { Tab, Tabs } from 'vant';
         height: 50px;
         background-color: #3955F6;
         font-size: 18px;
+        color: #fff;
       }
     }
     .cancel {
@@ -106,7 +124,6 @@ import { Tab, Tabs } from 'vant';
         font-size: 18px;
       }
     }
-
   }
 }
 </style>

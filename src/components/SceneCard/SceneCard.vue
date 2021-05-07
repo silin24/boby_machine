@@ -3,11 +3,11 @@
     <div class="up"></div>
     <div class="middle">
       <div class="uploadLeft">
-        <span>上传视频素材(可穿多个)</span>
+        <span>上传视频素材(可传多个)</span>
         <span class="videoForm">上传视频格式为.mp4的视频文件</span>
       </div>
       <div class="uploadRight">
-        <van-uploader :after-read="afterRead" class="upload"/>
+        <van-uploader accept="image/*,video/mp4,audio/*" :after-read="afterRead" :before-read="beforeRead" class="upload" upload-icon='video'/>
         <van-icon name="arrow" class="arrow"/>
       </div>
     </div>
@@ -28,9 +28,18 @@ import { Uploader } from 'vant';
      'van-uploader': Uploader
     },
     methods: {
-      afterRead(file) {
-        // 此时可以自行将文件上传至服务器
+      beforeRead(file,detail) {
+        console.log('before');
         console.log(file);
+        console.log(detail);
+        return true
+      },
+      afterRead(file,detail) {
+        // 此时可以自行将文件上传至服务器
+        console.log('after');
+        console.log(file);
+        console.log(detail);
+
       },
     },
   }

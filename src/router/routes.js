@@ -30,7 +30,13 @@ export default [
     component: Device,
     meta: {
       isShowFooter: true
-    }
+    },
+    // children:[
+    //   {
+    //       path: 'comboManage',
+    //       component: ComboManage
+    //     },
+    // ]
   },
   {
     path: '/video',
@@ -72,15 +78,15 @@ export default [
     component: Withdraw
   },
   {
-    path: '/addDevice',
+    path: '/device/addDevice',
     component: AddDevice
   },
   {
-    path:'/addlibrary',
+    path:'/video/addlibrary',
     component: AddLibrary
   },
   {
-    path: '/comboManage',
+    path: '/device/comboManage',
     component: ComboManage
   },
   {
@@ -88,7 +94,7 @@ export default [
     component: AddCombo
   },
   {
-    path: '/addressManage',
+    path: '/device/addressManage',
     component: AddressManage
   },
   {

@@ -2,31 +2,31 @@
   <div class="footer-guide">
     <span class="guide-item" :class="{on: $route.path==='/home'}" @click="goto('/home')">
       <span>
-        <van-icon name="star" />
+        <van-icon name="wap-home-o" />
       </span>
       <span>首页</span>
     </span>
     <span class="guide-item" :class="{on: $route.path==='/device'}" @click="goto('/device')">
       <span>
-        <van-icon name="star" />
+        <van-icon name="desktop-o" />
       </span>
       <span>设备</span>
     </span>
     <span class="guide-item" :class="{on: $route.path==='/video'}" @click="goto('/video')">
       <span>
-        <van-icon name="star" />
+        <van-icon name="video-o" />
       </span>
       <span>视频</span>
     </span>
     <span class="guide-item" :class="{on: $route.path==='/user'}" @click="goto('/user')">
       <span>
-        <van-icon name="star" />
+        <van-icon name="user-circle-o" />
       </span>
       <span>用户</span>
     </span>
     <span class="guide-item" :class="{on: $route.path==='/detail'}" @click="goto('/detail')">
       <span>
-        <van-icon name="star" />
+        <van-icon name="gold-coin-o" />
       </span>
       <span>明细</span>
     </span>
@@ -36,7 +36,6 @@
 <script type="text/ecmascript-6">
   export default {
     name: 'FooterGuide',
-    
 
     methods: {
       goto (path) {
@@ -58,7 +57,7 @@
       top: 0;
       width: 390px;
       height: 1px;
-      background-color: #111;
+      background-color: #f2f2f2;
       transform: scaleY(0.5);
     }
     display: flex;
@@ -73,8 +72,9 @@
       flex-direction: column;
       text-align: center;
       width: 25%;
-      // &.on
-      //   color: $green
+      &.on{
+        color: #007aff;
+      }
       span {
         margin-top: 5px;
         font-size: 12px;
